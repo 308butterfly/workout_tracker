@@ -1,0 +1,65 @@
+<h1>Add A Workout</h1>
+
+<form action="" method="">
+  <div>
+    <label for="name">Name:</label>
+    <input id="addName" type="text" name="name" placeholder="INSERT WORKOUT HERE" size="21" maxlength="255" required>
+  </div>
+  <div>
+    <label for="reps">Reps:</label>
+    <input class="numberInput" id="addReps" type="number" name="reps">
+  </div>
+  <div>
+    <label for="weight">Weight:</label>
+    <input class="numberInput" id="addWeight" type="number" name="weight">
+  </div>
+  <div>
+    <label for="unit">Units:</label>
+    <input id="addUnits" type="radio" name="unit" value="1" checked>lbs
+    <input type="radio" name="unit" value="0">kgs
+  </div>
+  <div>
+    <label for="date">Date:</label>
+    <input id="addDate" type="date" name="date">
+  </div>
+  <div>
+    <button onclick="insert()">Add</button>
+  </div>
+
+</form>
+
+{{#if results}}
+<h1>Completed Exercises</h1>
+<div id="generateTable">
+  <table>
+    <thead>
+      <tr>
+        <td>Name</td>
+        <td>Reps</td>
+        <td>Weight</td>
+        <td>Date</td>
+        <td>Units</td>
+        <td></td>
+        <td></td>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each results}}
+      <tr id="{{id}}">
+        <td>{{name}}</td>
+        <td>{{reps}}</td>
+        <td>{{weight}}</td>
+        <td>{{date}}</td>
+        <td>{{lbs}}</td>
+        <td><button onclick="" type="button">UPDATE</button></td>
+        {{!-- <td><button class="red" onclick="deleteEntry({{id}})" type="button">X</button></td> --}}
+        {{!-- <td><button class="red" onclick="deleteEntry({{id}})" type="button">X</button></td> --}}
+        <td>
+          <button onclick="EBS({{id}})" type="button">X</button>
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
+{{/if}}
